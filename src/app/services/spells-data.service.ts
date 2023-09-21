@@ -12,31 +12,36 @@ export class SpellsDataService {
 
   constructor(private http:HttpClient) {}
 
-  getSpellsList(): Observable<Spell[]> {
+  getAllSpells(): Observable<Spell[]> {
+
     return this.http.get<any>(this.BASE_URL).pipe(
-      map((obj:any) => obj.results),
+      map(dataObj => dataObj.results),
       catchError(err => {
         console.log(err);
-        return [];
+        return []
       })
-      );
+    )
+
+    // return this.http.get<Spell[]>(this.BASE_URL).pipe(
+    //   map((dataObj: any) => dataObj.results)
+    // )
   }
 
   getSpellDetail() {
     if (this.selectedSpell === '') {
-      this.selectedSpell = 'acid-arrow';
+      this.selectedSpell = 'acid-arrow'
     }
     return this.http.get<Spell>(this.BASE_URL + this.selectedSpell);
   }
 
-  getSpellDetailWithIndex(spellIndex: string) {
-    return this.http.get<Spell>(this.BASE_URL + spellIndex.index);
+  getSpellDetailWithIndex(spellIndex:string) {
+    return this.http.get<Spell>(this.BASE_URL + spellIndex);
   }
 
   // getAllSpellDetails() {
   //   return this.http.get<any>(this.BASE_URL).pipe(
   //     map(obj => obj.results),
-  //     switchMap(spells => forkJoin(spells.map((spell:any) => this.http.get<Spell>(this.BASE_URL + spell.))))
-  //   );
+  //     switchMap(spells => forkJoin(spells.map((spell:any) => this.http.get<Spell>(this.BASE_URL+spell.index))))
+  //   )
   // }
 }

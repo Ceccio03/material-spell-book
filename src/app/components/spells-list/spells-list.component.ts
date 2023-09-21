@@ -14,16 +14,16 @@ export class SpellsListComponent implements OnInit{
   constructor(private spellService: SpellsDataService, private router: Router) {}
 
   ngOnInit(): void {
-    this.spellService.getSpellsList().subscribe((data) => this.spells = data);
-    // this.spellService.getAllSpellDetails().subscribe(details => console.log(details));
+    this.spellService.getAllSpells().subscribe(data => this.spells = data);
+    // this.spellService.getAllSpellDetails().subscribe(details => console.log(details))
   }
 
-  // openDetail(spell: Spell) {
+  // openDetail(spell: Spell){
   //   this.spellService.selectedSpell = spell.index;
-  //   this.router.navigateByUrl('/detail');
+  //   this.router.navigateByUrl('/detail')
   // }
 
   openDetail(spell: Spell) {
-    this.router.navigateByUrl('/detail?spell=' + spell.index);
+    this.router.navigateByUrl('/detail?spell=' + spell.index)
   }
 }
