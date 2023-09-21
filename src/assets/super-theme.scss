@@ -1,0 +1,57 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+/* For use in src/lib/core/theming/_palette.scss */
+/* For use in src/lib/core/theming/_palette.scss */
+$super-violet: (
+    50 : #f1eff8,
+    100 : #ddd8ed,
+    200 : #c7bee1,
+    300 : #b0a3d5,
+    400 : #9f90cc,
+    500 : #8e7cc3,
+    600 : #8674bd,
+    700 : #7b69b5,
+    800 : #715fae,
+    900 : #5f4ca1,
+    A100 : #fefeff,
+    A200 : #d6cbff,
+    A400 : #ae98ff,
+    A700 : #9a7fff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+$my-primary: mat.define-palette($super-violet, 500);
+$my-accent: mat.define-palette($super-violet, 500);
+
+// The "warn" palette is optional and defaults to red if not specified.
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$super-theme: mat.define-dark-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+   warn: $my-warn,
+ ),
+ typography: mat.define-typography-config(),
+ density: 0,
+));
+
+@include mat.all-component-themes($super-theme);
