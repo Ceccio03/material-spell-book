@@ -1,13 +1,16 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button>
-      <mat-icon>home</mat-icon>
-    </button>
-    <span>My App</span>
-    <span class="spacer"></span>
-    <button mat-icon-button>
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button>
-      <mat-icon>share</mat-icon>
-    </button>
+  <button mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a routerLink="./home">
+  <span>
+    Spell Book
+  </span></a>
+  <span class="spacer"></span>
+  <a routerLink="./list">
+    <mat-icon>list</mat-icon>
+  </a>
+  <button mat-icon-button>
+    <mat-icon>share</mat-icon>
+  </button>
 </mat-toolbar>
