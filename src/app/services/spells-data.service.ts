@@ -29,10 +29,14 @@ export class SpellsDataService {
     return this.http.get<Spell>(this.BASE_URL + this.selectedSpell);
   }
 
-  getAllSpellDetails() {
-    return this.http.get<any>(this.BASE_URL).pipe(
-      map(obj => obj.results),
-      switchMap(spells => forkJoin(spells.map((spell:any) => this.http.get<Spell>(this.BASE_URL + spell.))))
-    );
+  getSpellDetailWithIndex(spellIndex: string) {
+    return this.http.get<Spell>(this.BASE_URL + spellIndex.index);
   }
+
+  // getAllSpellDetails() {
+  //   return this.http.get<any>(this.BASE_URL).pipe(
+  //     map(obj => obj.results),
+  //     switchMap(spells => forkJoin(spells.map((spell:any) => this.http.get<Spell>(this.BASE_URL + spell.))))
+  //   );
+  // }
 }

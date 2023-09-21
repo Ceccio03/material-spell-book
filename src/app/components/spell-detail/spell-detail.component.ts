@@ -10,9 +10,18 @@ export class SpellDetailComponent implements OnInit {
   constructor(public spellService: SpellsDataService ){}
 
   ngOnInit(): void {
-    this.spellService.getSpellDetail().subscribe({
-      next: detail => console.log(detail),
-      error: error => console.log(error)
-    });
+    // this.spellService.getSpellDetail().subscribe({
+    //   next: detail => console.log(detail),
+    //   error: error => console.log(error)
+    // });
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get('spell')) {
+      this.spellService.getSpellDetailWithIndex(params.get('spell')!)
+      .subscribe({
+        next: detail => console.log(detail),
+        error: error => console.log(error)
+      });
+    }
   }
 }
