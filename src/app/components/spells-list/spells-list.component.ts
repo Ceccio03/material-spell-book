@@ -11,14 +11,15 @@ import { SpellsDataService } from 'src/app/services/spells-data.service';
 export class SpellsListComponent implements OnInit{
   spells: Spell[] = [];
 
-  constructor(private spellData: SpellsDataService, private router: Router) {}
+  constructor(private spellService: SpellsDataService, private router: Router) {}
 
   ngOnInit(): void {
-    this.spellData.getSpellsList().subscribe((data) => this.spells = data);
+    this.spellService.getSpellsList().subscribe((data) => this.spells = data);
+    this.spellService.getAllSpellDetails().subscribe(details => console.log(details));
   }
 
   openDetail(spell: Spell) {
-    this.spellData.selectedSpell = spell.index;
+    this.spellService.selectedSpell = spell.index;
     this.router.navigateByUrl('/detail');
   }
 }

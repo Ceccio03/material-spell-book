@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { Spell } from 'src/app/model/spell';
+import { Component, OnInit } from '@angular/core';
 import { SpellsDataService } from 'src/app/services/spells-data.service';
 
 @Component({
@@ -7,16 +6,13 @@ import { SpellsDataService } from 'src/app/services/spells-data.service';
   templateUrl: './spell-detail.component.html',
   styleUrls: ['./spell-detail.component.scss']
 })
-export class SpellDetailComponent {
-  myparam="";
-
-  constructor(public spellData: SpellsDataService ){
-
-  }
+export class SpellDetailComponent implements OnInit {
+  constructor(public spellService: SpellsDataService ){}
 
   ngOnInit(): void {
-    this.spellData.getSpellDetail(this.myparam);
+    this.spellService.getSpellDetail().subscribe({
+      next: detail => console.log(detail),
+      error: error => console.log(error)
+    });
   }
-
-  
 }
