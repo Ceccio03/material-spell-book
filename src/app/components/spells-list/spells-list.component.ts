@@ -24,6 +24,7 @@ export class SpellsListComponent implements OnInit{
   // }
 
   openDetail(spell: Spell) {
-    this.router.navigateByUrl('/detail?spell=' + spell.index)
+    // this.router.navigateByUrl('/detail?spell=' + spell.index);
+    this.router.navigateByUrl('/detail/' + spell.index);
   }
 }

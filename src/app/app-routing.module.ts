@@ -7,7 +7,7 @@ import { SpellsListComponent } from './components/spells-list/spells-list.compon
 const routes: Routes = [
   {path:'home', component: MainComponent},
   {path:'list', component: SpellsListComponent},
-  {path:'detail', component: SpellDetailComponent},
+  {path:'detail/:index', component: SpellDetailComponent},
   {path: '', redirectTo:'/home', pathMatch:'full'},
   {path: '**', redirectTo: '/home'}
 ];

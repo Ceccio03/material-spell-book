@@ -1,7 +1,12 @@
 mat-card {
     color: white !important;
+  }
+  
+.card-data {
+    display: flex;
+    align-items: center;
 }
-
+  
 .spacer {
     flex: 1;
 }

@@ -1,1 +1,7 @@
-<h1>{{spellService.selectedSpell}}</h1>
+<div *ngIf="spellDetail">
+    <h1>{{spellDetail.name}}</h1>
+    <div *ngIf="spellDetail.desc && spellDetail.desc.length">
+        <strong>Description:</strong>
+        <span>{{spellDetail.desc}}</span>
+    </div>
+</div>
