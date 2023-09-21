@@ -130,4 +130,6 @@ $super-theme-light: mat.define-light-theme((
 
 .super-dark {
     @include mat.all-component-themes($super-theme-dark);
+    background-color: #414141;
+    color: white;
 }
