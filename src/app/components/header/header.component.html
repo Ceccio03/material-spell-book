@@ -10,7 +10,11 @@
   <a routerLink="./list">
     <mat-icon>list</mat-icon>
   </a>
-  <button mat-icon-button>
-    <mat-icon>share</mat-icon>
-  </button>
+  <!-- <button (click)="changeTheme()" mat-icon-button>
+    <mat-icon *ngIf="isLightTheme">dark_mode</mat-icon>
+    <mat-icon *ngIf="!isLightTheme">light_mode</mat-icon>
+  </button> -->
+  <mat-slide-toggle (toggleChange)="changeTheme()" [checked]="isLightTheme">
+    Dark
+  </mat-slide-toggle>
 </mat-toolbar>
