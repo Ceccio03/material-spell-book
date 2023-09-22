@@ -18,7 +18,7 @@ export interface Spell {
     subclasses?: Subclass[];
     url: string;
 }
-
+  
 export interface Damage {
     damage_type: DamageType;
     damage_at_slot_level: DamageAtSlotLevel;
@@ -54,7 +54,7 @@ export interface Class {
 }
   
 export interface Subclass {
-    index: string;
-    name: string;
-    url: string;
+    index: string
+    name: string
+    url: string
 }
